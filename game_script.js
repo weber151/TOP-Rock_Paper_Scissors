@@ -1,17 +1,73 @@
-let computerChoice = "null";
-
-function getComputerChoice(computerChoice) {
+function getcomputerSelection() {
     //Generate rock, paper or scissors for NPC
     Choice_Helper = Math.floor(Math.random()*100)
     if (Choice_Helper < 33) {
-        return computerChoice = "Rock";
+        return "rock";
     }
     else if (Choice_Helper > 33 && Choice_Helper < 66) {
-        return computerChoice = "Scissors";
+        return "scissors";
     }
     else {
-        return computerChoice = "Paper";
+        return "paper";
     }
 }
 
-console.log(getComputerChoice());
+function playerSelectionCheck(playerInput) {
+    if (playerInput.toLowerCase() === "rock") {
+        return playerInput.toLowerCase();
+    }
+    else if (playerInput.toLowerCase() === "scissors") {
+        return playerInput.toLowerCase();
+    }
+    else if (playerInput.toLowerCase() === "paper") {
+        return playerInput.toLowerCase();
+    }
+    else {
+        console.log(playerInput.toLowerCase() + " Error!!");
+        return;        
+    }
+}
+
+function selectWinner(computerPlayer, playerOne) {
+    let result = null;
+
+    const ifVal = (a, b, w) =>
+        computerPlayer === a && playerOne === b ? (result = w) : null;
+
+    ifVal("rock", "scissors", "Loser!");
+    ifVal("scissors", "paper", "Loser!");
+    ifVal("paper", "rock", "Loser!");
+    ifVal("scissors", "rock", "Winner!");
+    ifVal("paper", "scissors", "Winner!");
+    ifVal("rock", "paper", "Winner!"); 
+    
+    return result;
+}
+
+function playGame() {
+    let playerWin = 0;
+    let playerLose = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let playerInput = prompt("Are you a rock, paper or scissors? ")
+        const playerSelection = playerSelectionCheck(playerInput);
+        const computerSelection = getcomputerSelection();
+        let roundResult = selectWinner(computerSelection, playerSelection);
+        /* if (roundResult === "Winner!") {
+            playerWin = playerWin + 1;
+        }
+        else if (roundResult === "Loser!") {
+            playerLose = playerLose + 1;
+        }
+        else {
+            return;
+        }
+        */
+        console.log(playerSelection);
+        console.log(computerSelection);
+        console.log(selectWinner(computerSelection, playerSelection))
+    }
+    
+}
+
+playGame();
