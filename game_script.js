@@ -28,32 +28,7 @@ function playerSelectionCheck(playerInput) {
     }
 }
 
-const removeFromArray = function(array, arg) {
-    
-    for (let x = 0; x < arguments.length; x++) {
-        arg = arguments[x+1];
-        console.log(arg);
-        newArray = array;
-        let i = 0;
-        while (i < newArray.length) {
-            if (newArray[i] === arg) {
-                newArray.splice(i, 1);
-            }
-            else {
-                i++;
-            }
-        }
-    }
-    return newArray;
-};
 
-let myArr = [1, 2, 3, 4];
-
-console.log(removeFromArray(myArr, 3));
-console.log(myArr);
-
-
-/*
 function selectWinner(computerPlayer, playerOne) {
     let result = null;
 
@@ -87,4 +62,3 @@ function playGame() {
 }
 
 playGame();
-*/
