@@ -47,17 +47,37 @@ function selectWinner(computerPlayer, playerOne) {
 
 function playGame() {
     
-    for (let i = 0; i < 5; i++) {
-        let playerInput = prompt("Are you a rock, paper or scissors? ")
-        const playerSelection = playerSelectionCheck(playerInput);
-        const computerSelection = getcomputerSelection();
-        let roundResult = selectWinner(computerSelection, playerSelection);
-    
+    let playerWins = 0;
 
-        console.log(playerSelection);
-        console.log(computerSelection);
-        console.log(roundResult)
+    for (let i = 0; i < 5; i++) {
+        if (playerWins < 3){
+            let playerInput = prompt("Are you a rock, paper or scissors? ")
+            const playerSelection = playerSelectionCheck(playerInput);
+            const computerSelection = getcomputerSelection();
+            let roundResult = selectWinner(computerSelection, playerSelection);
+            if (roundResult == 'Winner!') {
+                playerWins = playerWins +1;
+            }
+            else if (roundResult == 'Loser!') {
+                playerWins = playerWins -1;
+            }                  
+            console.log(playerSelection);
+            console.log(computerSelection);
+            console.log(roundResult)
+        }
+        else if (playerWins == -3) {
+            return console.log('You lost the game.');
+        }  
+        else {
+            return console.log('You won the game!');
+        } 
+
     }
+    function gameCount(count) {
+        return (count > 0 ? 'You won! Barely...' : 'You lost! Barely...')
+    }
+    console.log(gameCount(playerWins));
+    console.log(playerWins);
     
 }
 
