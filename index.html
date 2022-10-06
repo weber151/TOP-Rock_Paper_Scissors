@@ -8,12 +8,20 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="rounds"></div>
     <div class="mainContainer">
-        <button class="gameBtn" value="rock">rock</button>
-        <button class="gameBtn" value="paper">paper</button>
-        <button class="gameBtn" value="scissors">scissors</button>
-    </div>
-
+        <div class="btnContainer">
+            <button class="gameBtn" value="rock">rock</button>
+            <button class="gameBtn" value="paper">paper</button>
+            <button class="gameBtn" value="scissors">scissors</button>
+        </div>
+        <div class="display_container">
+            <div class="choices">
+                <div id="play" class="display"></div>
+                <div id="comp" class="display"></div>
+            </div>
+            <div id="result" class="display"></div>
+        </div>
     <script src="game_script.js"></script>
 </body>
 </html>

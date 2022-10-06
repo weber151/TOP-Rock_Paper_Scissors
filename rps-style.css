@@ -6,10 +6,19 @@
     border-radius: 2rem;
     padding: 5rem;
     flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .gameBtn {
     display: Flex;
+    font-family: Arial, sans-serif;
     font-size: larger;
     font-weight: bolder;
     text-transform: uppercase;
@@ -21,4 +30,49 @@
     background-color: rgb(209, 155, 17);
     padding: .5rem;
     margin: .3rem;
+}
+
+.display_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(207, 174, 90);
+    border-radius: 2rem;
+    padding: 1rem;
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.display {
+    display: flex;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-content: center;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding: 1rem;
+
+}
+
+.rounds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: #f9faf8;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
 }
