@@ -12,26 +12,26 @@ function getcomputerSelection() {
     }
 }
 
-function playerSelectionCheck(playerInput) {
-    if (playerInput.toLowerCase() === "rock") {
-        return playerInput.toLowerCase();
-    }
-    else if (playerInput.toLowerCase() === "scissors") {
-        return playerInput.toLowerCase();
-    }
-    else if (playerInput.toLowerCase() === "paper") {
-        return playerInput.toLowerCase();
-    }
-    else {
-        console.log(playerInput.toLowerCase() + " Error!!");
-        return;        
-    }
-}
-
+// ** BELOW USED FOR TYPED INPUT BY PLAYER
+// function playerSelectionCheck(playerInput) {
+//     if (playerInput.toLowerCase() === "rock") {
+//         return playerInput.toLowerCase();
+//     }
+//     else if (playerInput.toLowerCase() === "scissors") {
+//         return playerInput.toLowerCase();
+//     }
+//     else if (playerInput.toLowerCase() === "paper") {
+//         return playerInput.toLowerCase();
+//     }
+//     else {
+//         console.log(playerInput.toLowerCase() + " Error!!");
+//         return;        
+//     }
+// }
 
 function selectWinner(computerPlayer, playerOne) {
     let result = null;
-
+    
     const ifVal = (a, b, w) =>
         computerPlayer === a && playerOne === b ? (result = w) : null;
 
@@ -41,6 +41,9 @@ function selectWinner(computerPlayer, playerOne) {
     ifVal("scissors", "rock", "Winner!");
     ifVal("paper", "scissors", "Winner!");
     ifVal("rock", "paper", "Winner!"); 
+    ifVal("rock", "rock", "Draw!");
+    ifVal("scissors", "scissors", "Draw!");
+    ifVal("paper", "paper", "Draw!")
     
     return result;
 }
@@ -52,7 +55,7 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         if (playerWins < 3){
             let playerInput = prompt("Are you a rock, paper or scissors? ")
-            const playerSelection = playerSelectionCheck(playerInput);
+            const playerSelection = playerSelectionCheck(playerInput); // btn input
             const computerSelection = getcomputerSelection();
             let roundResult = selectWinner(computerSelection, playerSelection);
             if (roundResult == 'Winner!') {
@@ -74,11 +77,21 @@ function playGame() {
 
     }
     function gameCount(count) {
-        return (count > 0 ? 'You won! Barely...' : 'You lost! Barely...')
+        return (count > 0 ? 'You won! Barely...' : 'You lost! Barely...');
     }
     console.log(gameCount(playerWins));
     console.log(playerWins);
     
 }
 
-playGame();
+function displayText(m) {
+    const computerSelection = getcomputerSelection();
+    let roundResult = selectWinner(computerSelection,m.textContent);
+    console.log(roundResult);
+}
+const rpsBtn = document.querySelectorAll('.gameBtn');
+rpsBtn.forEach(function(currentBtn){
+    currentBtn.addEventListener('click', function(){displayText(currentBtn)});
+})
+
+
