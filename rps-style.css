@@ -1,0 +1,24 @@
+.mainContainer {
+    display: Flex;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(231, 201, 144);
+    border-radius: 2rem;
+    padding: 5rem;
+    flex-wrap: wrap;
+}
+
+.gameBtn {
+    display: Flex;
+    font-size: larger;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border-width: .5rem;
+    border-radius: 5rem;
+    justify-items: center;
+    align-items: center;
+    border-color: rgb(90, 69, 13);
+    background-color: rgb(209, 155, 17);
+    padding: .5rem;
+    margin: .3rem;
+}
